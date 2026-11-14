@@ -1,0 +1,104 @@
+name: Import pinned Playwright source directly on main
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-playwright-source.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: playwright-reference-source-import
+  cancel-in-progress: false
+
+jobs:
+  source-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout reference repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Fetch, import, and verify real source on main
+        shell: bash
+        env:
+          PINNED_SHA: 'b4d016aadc5cbd2b898a284307975fe73e05483d'
+          PINNED_TREE: '6e0ff87e14ce08158f79ebe2070c95fc73abcbea'
+        run: |
+          set -euo pipefail
+          git config user.name 'TrillionAI Source Archive Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote add upstream-playwright https://github.com/microsoft/playwright.git
+          git fetch --no-tags --depth=1 upstream-playwright "$PINNED_SHA"
+          test "$(git rev-parse 'FETCH_HEAD^{commit}')" = "$PINNED_SHA" || {
+            echo "::error::Pinned upstream commit mismatch"
+            exit 1
+          }
+          test "$(git rev-parse 'FETCH_HEAD^{tree}')" = "$PINNED_TREE" || {
+            echo "::error::Pinned upstream tree mismatch"
+            exit 1
+          }
+          git cat-file -e "$PINNED_SHA:LICENSE"
+          git cat-file -e "$PINNED_SHA:NOTICE"
+
+          research_blob="$(git rev-parse 'HEAD:README.md')"
+          # Import the full tracked upstream tree to the repository root.
+          git read-tree --reset "$PINNED_TREE"
+          git update-index --add --cacheinfo "100644,$research_blob,TRILLIONAI_REFERENCE.md"
+
+          # Do not run or retain third-party CI on our reference default branch.
+          git ls-files -z '.github/workflows/' | xargs -0 -r git rm -r --cached --
+
+          # Compare source Git blob and mode identities, excluding only
+          # intentionally omitted GitHub workflows and the added research file.
+          git ls-tree -rz --full-tree "$PINNED_TREE" > /tmp/playwright-original-tree
+          git ls-files --stage -z > /tmp/playwright-import-index
+          python3 - <<'PY'
+          from pathlib import Path
+          original = Path('/tmp/playwright-original-tree').read_bytes().split(b'\0')
+          actual = Path('/tmp/playwright-import-index').read_bytes().split(b'\0')
+          def source_map(rows, indexed):
+              result = {}
+              for row in rows:
+                  if not row:
+                      continue
+                  metadata, path = row.split(b'\t', 1)
+                  fields = metadata.split()
+                  if indexed:
+                      mode, sha = fields[0], fields[1]
+                  else:
+                      mode, sha = fields[0], fields[2]
+                  result[path] = (mode, sha)
+              return result
+          before = source_map(original, False)
+          after = source_map(actual, True)
+          for path, identity in before.items():
+              if path.startswith(b'.github/workflows/'):
+                  continue
+              if after.get(path) != identity:
+                  raise SystemExit('Git object mismatch: ' + path.decode(errors='replace'))
+          extras = set(after) - set(before)
+          if extras != {b'TRILLIONAI_REFERENCE.md'}:
+              raise SystemExit('Unexpected extra paths: ' + repr(extras))
+          print(f'VERIFIED {len(before)} tracked source files against pinned Git object identities')
+          PY
+
+          git commit -m "archive: import pinned Playwright source at main root"
+          git push origin HEAD:main
+          git fetch --no-tags origin main
+          local_tree="$(git rev-parse 'HEAD^{tree}')"
+          remote_tree="$(git rev-parse 'FETCH_HEAD^{tree}')"
+          test "$local_tree" = "$remote_tree" || {
+            echo "::error::Remote destination tree differs from source-import tree"
+            exit 1
+          }
+          echo "VERIFIED UPSTREAM COMMIT: $PINNED_SHA"
+          echo "VERIFIED ORIGINAL SOURCE GIT TREE: $PINNED_TREE"
+          echo "VERIFIED DESTINATION MAIN GIT TREE: $remote_tree"
+          echo "SOURCE FILES DIRECTLY ON MAIN; ORIGINAL LICENSE AND NOTICE RETAINED"
