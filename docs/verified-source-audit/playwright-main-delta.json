@@ -1,0 +1,42 @@
+{
+  "upstream": "https://github.com/microsoft/playwright.git",
+  "pinned_commit": "b4d016aadc5cbd2b898a284307975fe73e05483d",
+  "destination_main_sha": "5ba5d5d0f0b5653edde86a4b4ea62ae539446c88",
+  "upstream_tracked_entries": 3149,
+  "destination_tracked_entries": 3128,
+  "missing_paths": [
+    ".github/workflows/agent-review.yml",
+    ".github/workflows/agent-task.yml",
+    ".github/workflows/agent-triage.yml",
+    ".github/workflows/check_copilot_models.yml",
+    ".github/workflows/copilot-setup-steps.yml",
+    ".github/workflows/create_test_report.yml",
+    ".github/workflows/infra.yml",
+    ".github/workflows/merge.config.ts",
+    ".github/workflows/publish_extension.yml",
+    ".github/workflows/publish_manual.yml",
+    ".github/workflows/publish_release.yml",
+    ".github/workflows/roll_deps.yml",
+    ".github/workflows/roll_nodejs.yml",
+    ".github/workflows/tests_bidi.yml",
+    ".github/workflows/tests_docker.yml",
+    ".github/workflows/tests_docker_changes.yml",
+    ".github/workflows/tests_docker_release.yml",
+    ".github/workflows/tests_extension.yml",
+    ".github/workflows/tests_mcp.yml",
+    ".github/workflows/tests_primary.yml",
+    ".github/workflows/tests_secondary.yml",
+    ".github/workflows/tests_webview_simulator.yml",
+    ".github/workflows/update_test_results_db.yml"
+  ],
+  "missing_path_count": 23,
+  "missing_upstream_ci_count": 23,
+  "missing_other_count": 0,
+  "mismatched_objects": [],
+  "mismatched_count": 0,
+  "extra_paths": [
+    ".github/workflows/audit-source-once.yml",
+    "TRILLIONAI_REFERENCE.md"
+  ],
+  "extra_count": 2
+}
