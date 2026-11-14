@@ -1,0 +1,146 @@
+{
+  "source": "https://github.com/microsoft/playwright.git",
+  "commit": "b4d016aadc5cbd2b898a284307975fe73e05483d",
+  "number_of_original_workflow_files": 23,
+  "original_ci_is_disabled": true,
+  "files": [
+    {
+      "upstream_path": ".github/workflows/agent-review.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/agent-review.yml",
+      "git_blob": "56f9ec912d220aac4db516f01568f6b00cae5cde",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/agent-task.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/agent-task.yml",
+      "git_blob": "4d974479be72b441eb6294635516606d1050a880",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/agent-triage.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/agent-triage.yml",
+      "git_blob": "fb555215b6bce74e6ff16a9f5855e6ad3805e9e2",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/check_copilot_models.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/check_copilot_models.yml",
+      "git_blob": "55fd0a98eb462eccbb4e72fe981527525ebe7895",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/copilot-setup-steps.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/copilot-setup-steps.yml",
+      "git_blob": "c9f75ed72dc77010e4ac7ef09f903ba76b97e0d4",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/create_test_report.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/create_test_report.yml",
+      "git_blob": "5b2197c172cfa18a0b554a9b707a0aee1722638c",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/infra.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/infra.yml",
+      "git_blob": "266279badf9034396a21b7db1c472f10ac5f7a30",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/merge.config.ts",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/merge.config.ts",
+      "git_blob": "e8ada9b95645d80ffcb9c03ec8b6ef6e04b371ee",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/publish_extension.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/publish_extension.yml",
+      "git_blob": "71ff908584f225374e9dad0a5a1812b88ddca6e3",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/publish_manual.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/publish_manual.yml",
+      "git_blob": "67147d6e9a46798539bf2868a52f511526ca4101",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/publish_release.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/publish_release.yml",
+      "git_blob": "3b2640b58cbac24242dac23bafccd39ccb851607",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/roll_deps.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/roll_deps.yml",
+      "git_blob": "d875beb19524bdb0489d5b28ac77391755dc0a6b",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/roll_nodejs.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/roll_nodejs.yml",
+      "git_blob": "f202a1ead8785db2dd78c63a34eac5c5dfa083d3",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_bidi.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_bidi.yml",
+      "git_blob": "513f64712ec921076437e5957a58306a3ef3147d",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_docker.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_docker.yml",
+      "git_blob": "9e4f16275db80af27402f240a88eeeeb158b85e2",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_docker_changes.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_docker_changes.yml",
+      "git_blob": "600bea5a5e0eed4ce06890a83efb0bf437ec1ac3",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_docker_release.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_docker_release.yml",
+      "git_blob": "7d6b1c853db91c6d7448df6861c571c188ffda29",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_extension.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_extension.yml",
+      "git_blob": "b1ec23b8a7f199331f89ebb34633c5f31a8c1a87",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_mcp.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_mcp.yml",
+      "git_blob": "77f61bee814ef21e5ed400a8a1aebc52c451a939",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_primary.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_primary.yml",
+      "git_blob": "f5276707f51c22f4029abe73978e7273f56bbddf",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_secondary.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_secondary.yml",
+      "git_blob": "49ed38c39d8e055449acee31234e215362d0471a",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/tests_webview_simulator.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/tests_webview_simulator.yml",
+      "git_blob": "7552aa417d4ee5417b6f1986f36f7535ada12a21",
+      "original_mode": "100644"
+    },
+    {
+      "upstream_path": ".github/workflows/update_test_results_db.yml",
+      "reference_path": "upstream-workflow-snapshots/playwright/.github/workflows/update_test_results_db.yml",
+      "git_blob": "0ab07f5b6f07e76804b597f5726b3f63745a94a1",
+      "original_mode": "100644"
+    }
+  ]
+}
