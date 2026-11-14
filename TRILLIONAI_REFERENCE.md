@@ -12,7 +12,19 @@ This public repository holds a pinned, Git-tracked upstream Playwright source sn
 - Original upstream root `LICENSE`: Apache License 2.0.
 - Original upstream `NOTICE` and all applicable per-file/component attribution must be retained.
 - Destination: tracked source files **directly on the default `main` branch**.
-- Import status: **NOT YET VERIFIED** until GitHub Actions confirms the remote Git tree and a source-file read succeeds.
+- Import status: **VERIFIED — imported source is visible on `main` and GitHub Actions succeeded.**
+
+## Verified import result
+
+- [Successful GitHub Actions source import](https://github.com/Anselm04/Playwright-Source-Code-Reference/actions/runs/43648413463)
+- Original pinned upstream Git tree: `6e0ff87e14ce08158f79ebe2070c95fc73abcbea`
+- Verified final destination Git tree: `a0b0a6d16731d52d613223283376908cf0864759`
+- Original upstream tracked entries: **3,492**; blob entries: **3,149**
+- Verified source-object mismatches: **zero**, ignoring removed upstream GitHub Actions workflows and the additional research document.
+- Both original root `LICENSE` (Apache License 2.0) and `NOTICE` are preserved.
+- Actual Playwright root source directories (`packages/`, `tests/`, `browser_patches/` and others) appear on `main`.
+
+The destination root differs from upstream only in the documented excluded CI definitions and added TrillionAI research documentation. This result is source-integrity verification, **not** a claim that Playwright was executed or that all tests pass.
 
 ## Import and verification
 
